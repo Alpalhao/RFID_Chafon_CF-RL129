@@ -20,7 +20,7 @@ namespace Test_RFID
         static void Main(string[] args)
         {
 
-            _port = new SerialPort("COM3");
+            _port = new SerialPort("COM7");
             _port.BaudRate = BAUD_RATE;
             _port.Open();
             var running = true;
@@ -61,7 +61,7 @@ namespace Test_RFID
 
         private static void ReadPort()
         {
-            Thread.Sleep(100);
+            Thread.Sleep(200);
             var buffer = new byte[_port.BytesToRead];
             _port.Read(buffer, 0, buffer.Length);
 
@@ -94,33 +94,29 @@ namespace Test_RFID
             }
 
             var arr = SplitString(read);
+            //Console.WriteLine("Device: " + string.Join("-", arr));
 
             //Read
-            if (arr[6] == "01")
+            if (arr[5] == "0C")
             {
-                // Nothing to read
-                Console.WriteLine("Nothing");
-            }
-            else if (arr[6] == "00")
-            {
-                var key = string.Join("", arr.Skip(7));
-                Console.WriteLine("Key: " + key);
-                if (_LastKey != key)
+                if (arr[6] == "01")
                 {
-                   // Beep();
-                   Console.WriteLine("###################  Beep!!!!  ##########");
+                    // Nothing to read
                 }
+                else if (arr[6] == "00")
+                {
+                    var key = string.Join("", arr.Skip(7));
+                    Console.WriteLine("Key: " + key);
+                    if (_LastKey != key)
+                    {
+                        Beep();
+                        Console.WriteLine("###################  Beep!!!!  ##########");
+                    }
 
-                _LastKey = key;
-
+                    _LastKey = key;
+                }
             }
-            else
-            {
-                Console.WriteLine("Device: " + read);
-            }
-
         }
-
 
         static void SendRead()
         {
