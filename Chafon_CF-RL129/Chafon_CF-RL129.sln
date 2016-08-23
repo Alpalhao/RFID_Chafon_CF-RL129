@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test RFID", "Test RFID\Test RFID.csproj", "{A37E82EE-7B5A-4F08-B8CC-7EDDC9FDD1E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CF-RL129_API", "CF-RL123_API\CF-RL129_API.csproj", "{F7CC4C04-E0A8-4862-B282-0022D8D236EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{245BF9D3-F736-49BA-A102-D662B3B7CCD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F7CC4C04-E0A8-4862-B282-0022D8D236EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7CC4C04-E0A8-4862-B282-0022D8D236EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7CC4C04-E0A8-4862-B282-0022D8D236EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{245BF9D3-F736-49BA-A102-D662B3B7CCD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{245BF9D3-F736-49BA-A102-D662B3B7CCD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{245BF9D3-F736-49BA-A102-D662B3B7CCD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{245BF9D3-F736-49BA-A102-D662B3B7CCD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

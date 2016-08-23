@@ -11,12 +11,8 @@ namespace Test_RFID
 {
     class Program
     {
-
-       
-
         static void Main(string[] args)
         {
-
             var api = new CF_RL129_API.API("COM2");
             api.Connect();
             var running = true;
@@ -34,6 +30,20 @@ namespace Test_RFID
                     case "r":
                         api.ReadTag();
                         break;
+                    case "i":
+                        api.GetId();
+                        break;
+                    case "copy":
+                        {
+                            Console.WriteLine("Please insert source TAG and press Enter");
+                            Console.ReadLine();
+                            var tag = api.ReadTag();
+                            Console.WriteLine("Please insert target TAG and press Enter");
+                            Console.ReadLine();
+                            api.WriteTag(tag);
+                        }
+                       
+                        break;
                     case "exit":
                         running = false;
                         break;
@@ -41,10 +51,7 @@ namespace Test_RFID
             }
 
             api.Close();
-
         }
-
-        
 
     }
 }
