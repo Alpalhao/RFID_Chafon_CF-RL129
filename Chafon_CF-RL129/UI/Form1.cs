@@ -35,14 +35,37 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _API.Port = cbxPorts.Selected;
+            _API.Port = cbxPorts.SelectedItem.ToString();
             _API.Connect();
             timer1.Start();
+            btnInfo.Enabled = true;
+            btnRead.Enabled = true;
+            btnWrite.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             tbLog.Text = _API.Log.ToString();
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            string tag = _API.ReadTag();
+            tbTag.Text = tag;
+
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            _API.GetId();
+        }
+
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please insert source TAG");
+            var tag = _API.ReadTag();
+            MessageBox.Show("Please insert target TAG");
+            _API.WriteTag(tag);
         }
     }
 }
